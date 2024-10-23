@@ -43,6 +43,6 @@ I'm 3ric-bot, a student at [CODAM](https://www.codam.nl/).
 
 <div align="center">
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=eoehlers&hide=java,html,css&layout=compact&theme=tokyonight&hide_title=false)](https://github.com/anuraghazra/github-readme-stats)[![3ric-bot's GitHub stats](https://github-readme-stats.vercel.app/api?username=eoehlers&theme=tokyonight&show_icons=true&hide_rank=true&hide=issues&hide_title=true)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=3ric-bot&hide=java,html,css&layout=compact&theme=tokyonight&hide_title=false)](https://github.com/anuraghazra/github-readme-stats)[![3ric-bot's GitHub stats](https://github-readme-stats.vercel.app/api?username=3ric-bot&theme=tokyonight&show_icons=true&hide_rank=true&hide=issues&hide_title=true)](https://github.com/anuraghazra/github-readme-stats)
 
 </div>
