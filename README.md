@@ -6,7 +6,7 @@ I'm 3ric-bot, a student at [CODAM](https://www.codam.nl/).
 <div align="center">
 
 <a href="https://github.com/3ric-bot/Libft">![42 Badge](https://github.com/3ric-bot/3ric-bot/blob/main/badges/libfte.png)</a>
-<a href="https://github.com/3ric-bot/get_next_line">![42 Badge](https://github.com/3ric-bot/get_next_line/tree/main/badges/get_next_linee.png)</a>
+<a href="https://github.com/3ric-bot/get_next_line">![42 Badge](https://github.com/3ric-bot/get_next_line/main/badges/get_next_linee.png)</a>
 <a href="https://github.com/3ric-bot/ft_printf">![42 Badge](https://github.com/mcombeau/mcombeau/blob/main/42_badges/ft_printfe.png)</a>
 <a href="https://github.com/3ric-bot/Born2beroot">![42 Badge](https://github.com/mcombeau/mcombeau/blob/main/42_badges/born2beroote.png)</a>
 <a href="https://github.com/3ric-bot/fract-ol">![42 Badge](https://github.com/mcombeau/mcombeau/blob/main/42_badges/fract-ole.png)</a>
