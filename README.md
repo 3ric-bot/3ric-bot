@@ -1,5 +1,8 @@
+<div align="center">
+
 ![train](https://github.com/user-attachments/assets/933c328b-40c3-4e49-9698-ff8506b16a3b)
 
+</div>
 ---
 
 I'm 3ric-bot, a student at [CODAM](https://www.codam.nl/).
