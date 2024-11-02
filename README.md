@@ -6,7 +6,7 @@
 
 ---
 
-I'm 3ric-bot, a student at [CODAM](https://www.codam.nl/).
+**I'm 3ric-bot, a student at** [**CODAM**](https://www.codam.nl/).
 
 ---
 
