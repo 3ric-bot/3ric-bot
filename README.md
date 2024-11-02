@@ -43,7 +43,7 @@
 -->
 </div>
 
-&#9656; [More information about these 42 school projects](https://github.com/3ric-bot)
+&#9656; [More information about these 42 school projects]([https://github.com/3ric-bot](https://github.com/3ric-bot/42_core_projects))
 
 ---
 
