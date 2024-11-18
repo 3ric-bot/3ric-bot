@@ -1,6 +1,6 @@
 <div align="center">
 
-![train](https://github.com/user-attachments/assets/933c328b-40c3-4e49-9698-ff8506b16a3b)
+![train](https://i.pinimg.com/originals/aa/a9/2d/aaa92dfb8b4f18822505574280da331c.gif)
 
 </div>
 
