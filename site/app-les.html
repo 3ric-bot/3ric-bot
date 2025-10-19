@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Les</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/app/lessen/les" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 24px;
+    }
+    @media (max-width: 960px) {
+      .lesson-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .lesson-panel {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+  </style>
+</head>
+<body style="background:var(--surface-muted);">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <main id="main" class="section" style="padding-top:48px;">
+    <div class="section-inner">
+      <div class="app-shell">
+        <aside class="sidebar">
+          <div>
+            <p style="margin:0;font-weight:700;">Jamie de Vries</p>
+            <p style="margin:0;color:rgba(226,232,240,0.72);">Frontend Path</p>
+          </div>
+          <nav aria-label="App navigatie">
+            <a href="app-dashboard.html">Dashboard</a>
+            <a href="app-leerwegen.html">Leerpaden</a>
+            <a href="app-les.html" class="active">Lessen</a>
+            <a href="app-community.html">Community</a>
+            <a href="app-certificaten.html">Certificaten</a>
+          </nav>
+          <div>
+            <span class="tag">🔥 6 dagen streak</span>
+          </div>
+        </aside>
+        <div class="app-content">
+          <div class="lesson-layout">
+            <article class="lesson-panel" style="grid-row: span 2;">
+              <h1 style="margin-top:0;">Les: React useEffect patronen</h1>
+              <p style="color:var(--text-muted);">Leer hoe je side-effects beheert met dependency arrays, cleanup functies en custom hooks.</p>
+              <h2>1. Recap</h2>
+              <p>useEffect voert side-effects uit na render. Bepaal gedrag met dependency array.</p>
+              <pre style="background:var(--surface-muted); padding:16px; border-radius:var(--radius-md); overflow:auto;">
+{`useEffect(() => {
+  const subscription = api.subscribe();
+  return () => subscription.unsubscribe();
+}, [api]);`}
+              </pre>
+              <h2>2. Guided practice</h2>
+              <p>Pas de dependency array aan zodat het effect alleen opnieuw runt als <code>userId</code> verandert.</p>
+              <button type="button">Open opdracht</button>
+            </article>
+            <aside class="lesson-panel">
+              <h2 style="margin-top:0;">Cheatsheet</h2>
+              <p>Bekijk snel de belangrijkste patronen voor useEffect.</p>
+              <a class="button secondary" href="cheatsheets.html">Open cheatsheet</a>
+              <h2>Micro-video</h2>
+              <p>“useEffect in 20s”</p>
+              <a class="button secondary" href="microvideos.html">Bekijk</a>
+            </aside>
+            <aside class="lesson-panel">
+              <h2 style="margin-top:0;">Discussie</h2>
+              <p>3 reacties in thread. Laatste antwoord door mentor Sander.</p>
+              <a class="button secondary" href="app-community.html">Open thread</a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

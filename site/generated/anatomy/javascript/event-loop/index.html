@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De JavaScript event loop stap voor stap | LearnZo Anatomy</title>
+  <meta name="description" content="Visualiseer call stack, microtasks en macrotasks voor voorspelbaar async gedrag." />
+  <link rel="canonical" href="https://learnzo.io/anatomy/javascript/event-loop" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "De JavaScript event loop stap voor stap",
+  "description": "Visualiseer call stack, microtasks en macrotasks voor voorspelbaar async gedrag.",
+  "inLanguage": "nl-NL",
+  "about": "event-loop",
+  "keywords": [
+    "Te veel microtasks veroorzaken starvation",
+    "Onbegrip over render fase leidt tot layout thrashing"
+  ]
+}
+  </script>
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="../../../index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="../../../leerwegen.html">Leerwegen</a>
+        <a href="../../../prijzen.html">Prijzen</a>
+        <a href="../../../about.html">Over ons</a>
+        <a href="../../../blog.html">Blog</a>
+        <a href="../../../contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="../../../login.html" data-track-event="nav.login">Inloggen</a>
+        <a class="button" href="../../../register.html" data-track-event="nav.start" data-track-meta="{&quot;source&quot;:&quot;nav&quot;}">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <p class="tagline">Anatomie bibliotheek</p>
+      <h1>De JavaScript event loop stap voor stap</h1>
+      <p class="lead">Visualiseer call stack, microtasks en macrotasks voor voorspelbaar async gedrag.</p>
+      <div class="cta-row">
+        <a class="button" href="../../../register.html" data-track-event="cta.anatomy" data-track-meta="{&quot;source&quot;:&quot;anatomy&quot;,&quot;concept&quot;:&quot;event-loop&quot;,&quot;language&quot;:&quot;javascript&quot;}">Bekijk het volledige leerpad</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Waarom het belangrijk is</h2>
+      <p>Door de event loop te begrijpen schrijf je UI's die responsief blijven onder druk.</p>
+    </section>
+    <section class="section muted">
+      <div class="two-column">
+        <div>
+          <h3>Runtime inzichten</h3>
+          <ul><li>Microtasks (Promises) draaien altijd voor rendering.</li><li>Timers met dezelfde delay kunnen in verschillende ticks landen door queue prioriteit.</li><li>Langdurige sync taken blokkeren alle andere events.</li></ul>
+        </div>
+        <div>
+          <h3>Veelgemaakte valkuilen</h3>
+          <ul><li>Te veel microtasks veroorzaken starvation</li><li>Onbegrip over render fase leidt tot layout thrashing</li></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2025</span> LearnZo.</span>
+      <a href="../../../privacy.html">Privacy</a>
+      <a href="../../../voorwaarden.html">Voorwaarden</a>
+    </div>
+  </footer>
+  <script src="../../../analytics.js" defer></script>
+  <script src="../../../main.js"></script>
+</body>
+</html>

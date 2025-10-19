@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python comprehension patterns | LearnZo Cheatsheets</title>
+  <meta name="description" content="Ontdek patronen voor list, dict en set comprehensions met aandacht voor leesbaarheid." />
+  <link rel="canonical" href="https://learnzo.io/cheatsheets/python-comprehensions" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Python comprehension patterns | Cheatsheet",
+  "description": "Ontdek patronen voor list, dict en set comprehensions met aandacht voor leesbaarheid.",
+  "tool": [
+    "VS Code",
+    "Terminal"
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Filteren met conditionals",
+      "text": "Communiceer intentie door duidelijke variabele namen en condities."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Dictionary comprehension",
+      "text": "Gebruik dictionary comprehensions voor snelle lookups zonder extra loops."
+    }
+  ]
+}
+  </script>
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="../../index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="../../leerwegen.html">Leerwegen</a>
+        <a href="../../prijzen.html">Prijzen</a>
+        <a href="../../about.html">Over ons</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="../../login.html" data-track-event="nav.login">Inloggen</a>
+        <a class="button" href="../../register.html" data-track-event="nav.start" data-track-meta="{&quot;source&quot;:&quot;nav&quot;}">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <p class="tagline">Cheatsheet bibliotheek</p>
+      <h1>Python comprehension patterns</h1>
+      <p class="lead">Ontdek patronen voor list, dict en set comprehensions met aandacht voor leesbaarheid.</p>
+    </section>
+    <section class="section">
+      <h2>Waarom dit relevant is</h2>
+      <p>Korte, expressieve code die het waarom uitlegt versnelt code reviews.</p>
+    </section>
+    <section class="section muted">
+      <div class="code-grid">
+        
+        <article class="card">
+          <h3>Filteren met conditionals</h3>
+          <pre><code>squares = [n ** 2 for n in numbers if n % 2 == 0]</code></pre>
+          <p>Communiceer intentie door duidelijke variabele namen en condities.</p>
+        </article>
+        
+        <article class="card">
+          <h3>Dictionary comprehension</h3>
+          <pre><code>user_lookup = {user.id: user.email for user in users}</code></pre>
+          <p>Gebruik dictionary comprehensions voor snelle lookups zonder extra loops.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2025</span> LearnZo.</span>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../voorwaarden.html">Voorwaarden</a>
+    </div>
+  </footer>
+  <script src="../../analytics.js" defer></script>
+  <script src="../../main.js"></script>
+</body>
+</html>

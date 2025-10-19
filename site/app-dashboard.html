@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Dashboard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/app" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="background:var(--surface-muted);">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <main id="main" class="section" style="padding-top:48px;">
+    <div class="section-inner">
+      <div class="app-shell">
+        <aside class="sidebar">
+          <div>
+            <p style="margin:0;font-weight:700;">Jamie de Vries</p>
+            <p style="margin:0;color:rgba(226,232,240,0.72);">Frontend Path</p>
+          </div>
+          <nav aria-label="App navigatie">
+            <a href="app-dashboard.html" class="active">Dashboard</a>
+            <a href="app-leerwegen.html">Leerpaden</a>
+            <a href="app-les.html">Lessen</a>
+            <a href="app-community.html">Community</a>
+            <a href="app-certificaten.html">Certificaten</a>
+          </nav>
+          <div>
+            <span class="tag">🔥 6 dagen streak</span>
+          </div>
+        </aside>
+        <div class="app-content">
+          <header style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+            <div>
+              <h1 style="margin:0;">Goedemorgen Jamie</h1>
+              <p style="margin:4px 0 0; color:var(--text-muted);">Je bent 68% klaar met React Foundations. Vandaag staan 2 taken op je planning.</p>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <button class="secondary" type="button">Nieuwe sprint</button>
+              <button type="button">Verdergaan</button>
+            </div>
+          </header>
+          <section style="margin-top:32px;">
+            <h2 style="margin-bottom:16px;">Voortgang</h2>
+            <div class="progress-grid">
+              <article class="progress-card">
+                <h3>React Foundations</h3>
+                <p style="margin:0;color:var(--text-muted);">Module 3 van 6</p>
+                <div class="progress-bar"><span style="width:68%"></span></div>
+              </article>
+              <article class="progress-card">
+                <h3>Project: Dashboard UI</h3>
+                <p style="margin:0;color:var(--text-muted);">Review gepland voor 15:30</p>
+                <div class="tag">Mentor: Amina</div>
+              </article>
+              <article class="progress-card">
+                <h3>Streak</h3>
+                <p style="margin:0;color:var(--text-muted);">6 dagen actief • Volgende freeze beschikbaar over 4 dagen</p>
+              </article>
+            </div>
+          </section>
+          <section style="margin-top:32px;">
+            <h2 style="margin-bottom:16px;">Aanbevolen acties</h2>
+            <div class="grid columns-3">
+              <div class="card">
+                <h3>Pseudocode review</h3>
+                <p>Bekijk de 5 stappen die je gisteren hebt opgeslagen voor “Array utils”.</p>
+                <a class="button secondary" href="#">Open pseudocode</a>
+              </div>
+              <div class="card">
+                <h3>Community highlight</h3>
+                <p>Je antwoord op “React Router nested routes” heeft 2 nieuwe upvotes.</p>
+                <a class="button secondary" href="app-community.html">Bekijk thread</a>
+              </div>
+              <div class="card">
+                <h3>Micro-video</h3>
+                <p>“Fetch API debugging in 20s” aanbevolen na fout in opdracht.</p>
+                <a class="button secondary" href="microvideos.html">Speel af</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

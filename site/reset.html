@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Wachtwoord reset</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/wachtwoord-reset" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    main { min-height: 80vh; display: grid; place-items: center; padding: 48px 16px; }
+    form { background: var(--surface); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-md); border: 1px solid rgba(15,23,42,0.08); width: min(420px, 100%); display: grid; gap: 16px; }
+    label { display: grid; gap: 6px; font-weight: 600; }
+    input { padding: 12px; border-radius: var(--radius-md); border: 1px solid rgba(15,23,42,0.12); font-size: 1rem; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <main id="main">
+    <form>
+      <h1 style="margin:0;">Reset je wachtwoord</h1>
+      <p style="margin:0;color:var(--text-muted);">Voer je e-mailadres in om een resetlink te ontvangen.</p>
+      <label for="email">E-mailadres
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="jij@learnzo.com" required />
+      </label>
+      <button type="submit">Verstuur resetlink</button>
+      <a href="login.html">Terug naar inloggen</a>
+    </form>
+  </main>
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2024</span> LearnZo.</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

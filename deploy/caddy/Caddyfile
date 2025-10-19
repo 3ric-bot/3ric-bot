@@ -1,0 +1,39 @@
+{
+  email {$CADDY_ADMIN_EMAIL}
+  admin off
+}
+
+{$APP_DOMAIN} {
+  encode zstd gzip
+
+  @api {
+    path /api/*
+    path /auth/*
+    path /grader/*
+    path /billing/*
+    path /calendar/*
+    path /support/*
+    path /admin/*
+  }
+
+  handle @api {
+    reverse_proxy {$API_UPSTREAM}
+  }
+
+  handle {
+    reverse_proxy {$FRONTEND_UPSTREAM}
+  }
+
+  header {
+    Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    Referrer-Policy "strict-origin-when-cross-origin"
+    X-Frame-Options "DENY"
+    X-Content-Type-Options "nosniff"
+    Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  }
+
+  log {
+    output stdout
+    format single_field common_log
+  }
+}

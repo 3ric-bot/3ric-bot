@@ -1,0 +1,186 @@
+{
+  "exerciseTopics": [
+    {
+      "slug": "array-methods",
+      "title": "JavaScript array-methoden oefeningen",
+      "summary": "Verdiep je in map, filter en reduce met contextuele opdrachten die de businesswaarde benadrukken.",
+      "levels": [
+        {
+          "level": "beginner",
+          "title": "Beginner — Bouw intuïtie op voor data-transformaties",
+          "description": "Leer hoe map, filter en reduce samenwerken om ruwe data om te vormen tot bruikbare inzichten.",
+          "whyItMatters": "Productteams vertrouwen op consistente datastructuren. Door de onderliggende patronen te begrijpen maak je minder bugs en experimenteer je sneller.",
+          "outcomes": [
+            "Je kunt bepalen wanneer je map, filter of reduce inzet",
+            "Je schrijft tests die bevestigen dat elke transformatie het juiste gedrag levert",
+            "Je legt collega’s uit waarom een bepaalde aanpak het meest onderhoudbaar is"
+          ],
+          "estimatedTime": "PT45M",
+          "keywords": ["javascript", "arrays", "functioneel programmeren"],
+          "ctaCopy": "Start met de gratis basisopdracht"
+        },
+        {
+          "level": "gevorderd",
+          "title": "Gevorderd — Optimaliseer voor performance en leesbaarheid",
+          "description": "Werk met samengestelde datastructuren, chained methods en lazy evaluatie.",
+          "whyItMatters": "Gevorderde array-methoden vormen de kern van data pipelines in front-end apps. Begrip voorkomt regressies en performanceproblemen.",
+          "outcomes": [
+            "Je herkent anti-patterns zoals onnodige chaining",
+            "Je refactort imperatieve loops naar declaratieve patronen",
+            "Je onderbouwt performancekeuzes richting stakeholders"
+          ],
+          "estimatedTime": "PT60M",
+          "keywords": ["javascript", "performance", "code quality"],
+          "ctaCopy": "Ontgrendel gevorderde opdrachten"
+        }
+      ]
+    },
+    {
+      "slug": "async-await",
+      "title": "Async/await foutafhandeling",
+      "summary": "Test je begrip van asynchrone flows met realistische API-scenario’s.",
+      "levels": [
+        {
+          "level": "beginner",
+          "title": "Beginner — async/await fundamentals",
+          "description": "Voorkom callback-hell en leer hoe je fouten communicatief afvangt.",
+          "whyItMatters": "Gebruikerservaring valt of staat met betrouwbare dataflows. Begrip van async/await voorkomt race conditions en silent failures.",
+          "outcomes": [
+            "Je kan beloftes sequentieel en parallel uitvoeren",
+            "Je toont duidelijke foutmeldingen aan de gebruiker",
+            "Je logt relevante context voor debuggers"
+          ],
+          "estimatedTime": "PT40M",
+          "keywords": ["javascript", "async", "api"],
+          "ctaCopy": "Probeer de async challenge"
+        },
+        {
+          "level": "expert",
+          "title": "Expert — Robuuste retry en circuit breakers",
+          "description": "Implementeer exponential backoff, cancellation en timeout strategieën.",
+          "whyItMatters": "In productie heb je externe afhankelijkheden. Systeemdenken en guardrails houden je SLO’s gezond.",
+          "outcomes": [
+            "Je evalueert wanneer retries zinvol zijn",
+            "Je monitort latency en maakt beslissingen op basis van telemetrie",
+            "Je documenteert fallback scenarios voor incident responses"
+          ],
+          "estimatedTime": "PT75M",
+          "keywords": ["resilience", "observability", "javascript"],
+          "ctaCopy": "Los het resilience scenario op"
+        }
+      ]
+    },
+    {
+      "slug": "python-list-comprehensions",
+      "title": "Python list comprehensions",
+      "summary": "Ontdek hoe list comprehensions leesbaarheid verbeteren zonder het waarom te verliezen.",
+      "levels": [
+        {
+          "level": "beginner",
+          "title": "Beginner — Van loops naar expressieve comprehensions",
+          "description": "Vertaal bestaande for-loops naar comprehensions en begrijp de syntaxis.",
+          "whyItMatters": "Sneller redeneren over data transformaties voorkomt bugs in data pipelines en notebooks.",
+          "outcomes": [
+            "Je identificeert wanneer een comprehension wenselijk is",
+            "Je verwerkt condities binnen comprehensions",
+            "Je houdt aandacht voor leesbaarheid in teamstandaarden"
+          ],
+          "estimatedTime": "PT35M",
+          "keywords": ["python", "data", "clean code"],
+          "ctaCopy": "Schrijf je eerste comprehension"
+        }
+      ]
+    }
+  ],
+  "anatomyEntries": [
+    {
+      "language": "javascript",
+      "concept": "closures",
+      "title": "Closures ontrafeld",
+      "slug": "closures",
+      "summary": "Analyseer hoe lexical scope en runtime gedrag samenwerken om closures mogelijk te maken.",
+      "whyItMatters": "Closures bepalen hoe state wordt vastgehouden in UI componenten, event handlers en module-patterns.",
+      "runtimeInsights": [
+        "De scope chain wordt opgebouwd tijdens parse-time, niet tijdens uitvoering.",
+        "Elke functie call krijgt een nieuw closure-record met verwijzing naar outer scope.",
+        "Garbage collection kan variabelen pas vrijgeven als er geen referenties meer zijn."
+      ],
+      "pitfalls": [
+        "Onverwachte memory leaks door langdurige references",
+        "Verwarring tussen var/let in loops met async callbacks"
+      ]
+    },
+    {
+      "language": "javascript",
+      "concept": "event-loop",
+      "title": "De JavaScript event loop stap voor stap",
+      "slug": "event-loop",
+      "summary": "Visualiseer call stack, microtasks en macrotasks voor voorspelbaar async gedrag.",
+      "whyItMatters": "Door de event loop te begrijpen schrijf je UI's die responsief blijven onder druk.",
+      "runtimeInsights": [
+        "Microtasks (Promises) draaien altijd voor rendering.",
+        "Timers met dezelfde delay kunnen in verschillende ticks landen door queue prioriteit.",
+        "Langdurige sync taken blokkeren alle andere events."
+      ],
+      "pitfalls": [
+        "Te veel microtasks veroorzaken starvation",
+        "Onbegrip over render fase leidt tot layout thrashing"
+      ]
+    },
+    {
+      "language": "python",
+      "concept": "list-comprehensions",
+      "title": "List comprehensions dissected",
+      "slug": "list-comprehensions",
+      "summary": "Volg hoe Python expressions worden geëvalueerd en welke scopes actief zijn tijdens comprehensions.",
+      "whyItMatters": "Teams bouwen data pipelines sneller wanneer iedereen de impliciete scope-regels begrijpt.",
+      "runtimeInsights": [
+        "Elke comprehension maakt een eigen lokale scope.",
+        "Variabelen binnen de comprehension lekken niet naar de outer scope.",
+        "Nested comprehensions vereisen duidelijke naming voor leesbaarheid."
+      ],
+      "pitfalls": [
+        "Onleesbare one-liners met meerdere condities",
+        "Onnodig gebruik waar generator expressions volstaan"
+      ]
+    }
+  ],
+  "cheatsheets": [
+    {
+      "slug": "fetch-api",
+      "title": "Fetch API cheatsheet",
+      "description": "Herhaal de belangrijkste patronen voor het werken met fetch, inclusief foutafhandeling en retries.",
+      "whyItMatters": "Consistente data calls voorkomen race conditions en verlagen supportdruk.",
+      "snippets": [
+        {
+          "title": "Basisrequest",
+          "code": "fetch(url, { headers: { 'Content-Type': 'application/json' }})\n  .then(res => { if (!res.ok) throw new Error('Response error'); return res.json(); })",
+          "explanation": "Zorg dat je altijd `res.ok` controleert om silent failures te vermijden."
+        },
+        {
+          "title": "Retry met exponential backoff",
+          "code": "async function retry(fn, attempts = 3) {\n  for (let i = 0; i < attempts; i++) {\n    try {\n      return await fn();\n    } catch (error) {\n      await new Promise((resolve) => setTimeout(resolve, 2 ** i * 100));\n    }\n  }\n  throw new Error('Max retries reached');\n}",
+          "explanation": "Backoff voorkomt dat je API extra belast tijdens incidenten."
+        }
+      ]
+    },
+    {
+      "slug": "python-comprehensions",
+      "title": "Python comprehension patterns",
+      "description": "Ontdek patronen voor list, dict en set comprehensions met aandacht voor leesbaarheid.",
+      "whyItMatters": "Korte, expressieve code die het waarom uitlegt versnelt code reviews.",
+      "snippets": [
+        {
+          "title": "Filteren met conditionals",
+          "code": "squares = [n ** 2 for n in numbers if n % 2 == 0]",
+          "explanation": "Communiceer intentie door duidelijke variabele namen en condities."
+        },
+        {
+          "title": "Dictionary comprehension",
+          "code": "user_lookup = {user.id: user.email for user in users}",
+          "explanation": "Gebruik dictionary comprehensions voor snelle lookups zonder extra loops."
+        }
+      ]
+    }
+  ]
+}

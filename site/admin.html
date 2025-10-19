@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo Beheer — Acties, kortingen en governance</title>
+  <meta name="description" content="Beheer LearnZo-kortingen veilig: maak campagnes aan, activeer of pauzeer ze en behoud volledige audittrail." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/admin" />
+  <link rel="alternate" hreflang="nl" href="https://learnzo.io/admin" />
+  <link rel="alternate" hreflang="en" href="https://learnzo.io/en/admin" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LearnZo Beheer — Acties, kortingen en governance" />
+  <meta property="og:description" content="Zet promoties aan of uit met ingebouwde guardrails, auditlogging en plan-validatie." />
+  <meta property="og:url" content="https://learnzo.io/admin" />
+  <meta property="og:image" content="https://cdn.learnzo.io/og/learnzo-admin.jpg" />
+  <meta property="og:site_name" content="LearnZo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LearnZo Beheer — Acties, kortingen en governance" />
+  <meta name="twitter:description" content="Beheer kortingen, feature-gates en audittrails vanuit één veilige console." />
+  <meta name="twitter:image" content="https://cdn.learnzo.io/og/learnzo-admin.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="leerwegen.html">Leerwegen</a>
+        <a href="prijzen.html">Prijzen</a>
+        <a href="about.html">Over ons</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html" aria-current="page">Beheer</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="login.html">Inloggen</a>
+        <a class="button" href="register.html">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="tagline">Beheerconsole</p>
+      <h1>Volledige controle over kortingen, acties en auditlogs.</h1>
+      <p class="lead">Maak campagnes aan, stel limieten in en activeer of pauzeer acties met dezelfde guardrails die we in productie hanteren.</p>
+      <div class="cta-row">
+        <a class="button" href="#campagnes">Bekijk campagnes</a>
+        <a class="button secondary" href="docs/launch-readiness-checklist.md">Launch-checklist</a>
+      </div>
+    </section>
+
+    <section id="campagnes" class="section">
+      <div class="section-inner">
+        <div class="admin-layout">
+          <article class="admin-panel">
+            <h2>Campagne-overzicht</h2>
+            <p class="admin-note">Plak je admin access token om bestaande promoties in te zien of aan te passen. Elke wijziging komt automatisch in de auditlog.</p>
+            <form class="admin-actions" aria-label="Campagnes laden">
+              <label for="admin-token">
+                Access token
+                <input id="admin-token" name="token" type="password" autocomplete="off" placeholder="Bearer token" required />
+              </label>
+              <label class="toggle" for="include-archived">
+                <input id="include-archived" type="checkbox" />
+                Toon gearchiveerd
+              </label>
+              <button id="load-promotions" type="submit" class="secondary">Campagnes laden</button>
+            </form>
+            <div id="admin-feedback" role="status" aria-live="polite">Vul een toegangstoken in om campagnes te beheren.</div>
+            <div class="admin-table-wrapper" role="region" aria-live="polite" aria-label="Campagnetabel">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Campagne</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Korting</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">Einde</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Lifecycle</th>
+                    <th scope="col">Plannen</th>
+                  </tr>
+                </thead>
+                <tbody id="promotions-body">
+                  <tr>
+                    <td colspan="8">Koppel de API en klik op “Campagnes laden” om actieve promoties te zien.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <aside class="admin-panel">
+            <h2>Ingebouwde zekerheden</h2>
+            <ul class="checklist">
+              <li>Iedere mutatie schrijft een audit-event weg met actor, IP en user-agent.</li>
+              <li>Kortingswaarden worden gevalideerd (percentage ≤ 100, vast bedrag ≥ €1) en plan-sleutels moeten bestaan.</li>
+              <li>Activeren kan alleen via een expliciete POST en corrigeert de starttijd als die in de toekomst ligt.</li>
+              <li>Gearchiveerde campagnes komen standaard niet terug in lijsten zodat legacy codes niet opnieuw opduiken.</li>
+            </ul>
+            <p class="admin-note">Koppel ook de endpoints `/admin/audit-log` en `/admin/privacy-requests` aan je SIEM voor volledige compliance.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted">
+      <div class="section-inner">
+        <div class="admin-layout">
+          <article class="admin-panel">
+            <h3>Nieuwe campagne aanmaken</h3>
+            <form id="create-promotion-form" class="admin-form">
+              <label for="create-name">Campagnenaam
+                <input id="create-name" name="name" required placeholder="Voorjaar 2025" />
+              </label>
+              <label for="create-code">Kortingscode
+                <input id="create-code" name="code" required placeholder="VOORJAAR25" />
+              </label>
+              <label for="create-discount-type">Type korting
+                <select id="create-discount-type" name="discountType">
+                  <option value="percentage">Percentage</option>
+                  <option value="fixed">Vast bedrag (€ centen)</option>
+                </select>
+              </label>
+              <label for="create-value">Waarde
+                <input id="create-value" name="value" type="number" min="1" step="1" required placeholder="25" />
+              </label>
+              <label for="create-plans">Plannen (komma-gescheiden)
+                <input id="create-plans" name="plans" placeholder="pro-monthly,pro-annual" />
+              </label>
+              <label for="create-start">Startmoment
+                <input id="create-start" name="startsAt" type="datetime-local" />
+              </label>
+              <label for="create-end">Einde
+                <input id="create-end" name="endsAt" type="datetime-local" />
+              </label>
+              <label for="create-usage">Totale limiet
+                <input id="create-usage" name="usageLimit" type="number" min="1" />
+              </label>
+              <label for="create-per-user">Limiet per gebruiker
+                <input id="create-per-user" name="perUserLimit" type="number" min="1" />
+              </label>
+              <label class="toggle" for="create-stackable">
+                <input id="create-stackable" name="stackable" type="checkbox" />
+                Combineerbaar met andere kortingen
+              </label>
+              <label for="create-notes">Notities
+                <textarea id="create-notes" name="notes" rows="3" placeholder="Interne toelichting voor finance of support"></textarea>
+              </label>
+              <button type="submit">Campagne opslaan</button>
+            </form>
+          </article>
+          <article class="admin-panel">
+            <h3>Bestaande campagne bijwerken of schakelen</h3>
+            <form id="update-promotion-form" class="admin-form" aria-label="Campagne bijwerken">
+              <label for="update-id">Campagne ID
+                <input id="update-id" name="promotionId" required placeholder="promo-..." />
+              </label>
+              <label for="update-name">Nieuwe naam
+                <input id="update-name" name="name" placeholder="Bijgewerkte naam" />
+              </label>
+              <label for="update-code">Nieuwe code
+                <input id="update-code" name="code" placeholder="NIEUWKORTING" />
+              </label>
+              <label for="update-value">Nieuwe waarde
+                <input id="update-value" name="value" type="number" min="1" />
+              </label>
+              <label for="update-start">Nieuwe start
+                <input id="update-start" name="startsAt" type="datetime-local" />
+              </label>
+              <label for="update-end">Nieuw einde
+                <input id="update-end" name="endsAt" type="datetime-local" />
+              </label>
+              <label for="update-usage">Nieuwe totale limiet
+                <input id="update-usage" name="usageLimit" type="number" min="1" />
+              </label>
+              <label for="update-per-user">Nieuwe limiet per gebruiker
+                <input id="update-per-user" name="perUserLimit" type="number" min="1" />
+              </label>
+              <label for="update-plans">Plannen
+                <input id="update-plans" name="plans" placeholder="pro-monthly,team" />
+              </label>
+              <label for="update-notes">Notities
+                <textarea id="update-notes" name="notes" rows="3" placeholder="Waarom voer je deze wijziging door?"></textarea>
+              </label>
+              <button type="submit" class="secondary">Wijzigingen opslaan</button>
+            </form>
+            <form id="promotion-action-form" class="admin-form" aria-label="Campagne status aanpassen">
+              <label for="action-id">Campagne ID
+                <input id="action-id" name="promotionId" required placeholder="promo-..." />
+              </label>
+              <label for="action-select">Actie
+                <select id="action-select" name="action" required>
+                  <option value="activate">Activeren</option>
+                  <option value="pause">Pauzeren</option>
+                  <option value="archive">Archiveren</option>
+                </select>
+              </label>
+              <button type="submit">Actie uitvoeren</button>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2024</span> LearnZo.</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="voorwaarden.html">Voorwaarden</a>
+    </div>
+  </footer>
+  <script src="analytics.js" defer></script>
+  <script src="main.js"></script>
+  <script src="scripts/admin.js" defer></script>
+</body>
+</html>

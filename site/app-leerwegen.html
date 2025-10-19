@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Mijn leerpaden</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/app/leerwegen" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="background:var(--surface-muted);">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <main id="main" class="section" style="padding-top:48px;">
+    <div class="section-inner">
+      <div class="app-shell">
+        <aside class="sidebar">
+          <div>
+            <p style="margin:0;font-weight:700;">Jamie de Vries</p>
+            <p style="margin:0;color:rgba(226,232,240,0.72);">Frontend Path</p>
+          </div>
+          <nav aria-label="App navigatie">
+            <a href="app-dashboard.html">Dashboard</a>
+            <a href="app-leerwegen.html" class="active">Leerpaden</a>
+            <a href="app-les.html">Lessen</a>
+            <a href="app-community.html">Community</a>
+            <a href="app-certificaten.html">Certificaten</a>
+          </nav>
+          <div>
+            <span class="tag">🔥 6 dagen streak</span>
+          </div>
+        </aside>
+        <div class="app-content">
+          <h1 style="margin-top:0;">Mijn leerpaden</h1>
+          <p style="margin-top:8px;color:var(--text-muted);">Selecteer een leerpad om voortgang en modules te bekijken. Adaptive aanbevelingen zorgen dat je focus houdt.</p>
+          <div class="grid columns-3" style="margin-top:32px;">
+            <article class="card">
+              <h2>Frontend Developer</h2>
+              <p style="color:var(--text-muted);">Voortgang 68% • 3 modules resterend</p>
+              <div class="progress-bar"><span style="width:68%"></span></div>
+              <a class="button secondary" href="app-les.html">Ga verder</a>
+            </article>
+            <article class="card">
+              <h2>Backend (Node)</h2>
+              <p style="color:var(--text-muted);">Voortgang 12% • Trial toegang</p>
+              <div class="progress-bar"><span style="width:12%"></span></div>
+              <a class="button secondary" href="#">Ontgrendel</a>
+            </article>
+            <article class="card">
+              <h2>Career Hub</h2>
+              <p style="color:var(--text-muted);">Nieuwe taken: CV-update, portfolio review</p>
+              <a class="button secondary" href="#">Bekijk taken</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

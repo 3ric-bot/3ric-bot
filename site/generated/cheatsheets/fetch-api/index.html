@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fetch API cheatsheet | LearnZo Cheatsheets</title>
+  <meta name="description" content="Herhaal de belangrijkste patronen voor het werken met fetch, inclusief foutafhandeling en retries." />
+  <link rel="canonical" href="https://learnzo.io/cheatsheets/fetch-api" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Fetch API cheatsheet | Cheatsheet",
+  "description": "Herhaal de belangrijkste patronen voor het werken met fetch, inclusief foutafhandeling en retries.",
+  "tool": [
+    "VS Code",
+    "Terminal"
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Basisrequest",
+      "text": "Zorg dat je altijd `res.ok` controleert om silent failures te vermijden."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Retry met exponential backoff",
+      "text": "Backoff voorkomt dat je API extra belast tijdens incidenten."
+    }
+  ]
+}
+  </script>
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="../../index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="../../leerwegen.html">Leerwegen</a>
+        <a href="../../prijzen.html">Prijzen</a>
+        <a href="../../about.html">Over ons</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="../../login.html" data-track-event="nav.login">Inloggen</a>
+        <a class="button" href="../../register.html" data-track-event="nav.start" data-track-meta="{&quot;source&quot;:&quot;nav&quot;}">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <p class="tagline">Cheatsheet bibliotheek</p>
+      <h1>Fetch API cheatsheet</h1>
+      <p class="lead">Herhaal de belangrijkste patronen voor het werken met fetch, inclusief foutafhandeling en retries.</p>
+    </section>
+    <section class="section">
+      <h2>Waarom dit relevant is</h2>
+      <p>Consistente data calls voorkomen race conditions en verlagen supportdruk.</p>
+    </section>
+    <section class="section muted">
+      <div class="code-grid">
+        
+        <article class="card">
+          <h3>Basisrequest</h3>
+          <pre><code>fetch(url, { headers: { 'Content-Type': 'application/json' }})
+  .then(res =&gt; { if (!res.ok) throw new Error('Response error'); return res.json(); })</code></pre>
+          <p>Zorg dat je altijd `res.ok` controleert om silent failures te vermijden.</p>
+        </article>
+        
+        <article class="card">
+          <h3>Retry met exponential backoff</h3>
+          <pre><code>async function retry(fn, attempts = 3) {
+  for (let i = 0; i &lt; attempts; i++) {
+    try {
+      return await fn();
+    } catch (error) {
+      await new Promise((resolve) =&gt; setTimeout(resolve, 2 ** i * 100));
+    }
+  }
+  throw new Error('Max retries reached');
+}</code></pre>
+          <p>Backoff voorkomt dat je API extra belast tijdens incidenten.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2025</span> LearnZo.</span>
+      <a href="../../privacy.html">Privacy</a>
+      <a href="../../voorwaarden.html">Voorwaarden</a>
+    </div>
+  </footer>
+  <script src="../../analytics.js" defer></script>
+  <script src="../../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+node_modules/
+backend/data/*.json
+backend/data/*.json.bak
+backend/data/*.json.sha256

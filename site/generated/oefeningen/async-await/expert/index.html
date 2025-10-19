@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Async/await foutafhandeling — Expert — Robuuste retry en circuit breakers</title>
+  <meta name="description" content="Implementeer exponential backoff, cancellation en timeout strategieën." />
+  <link rel="canonical" href="https://learnzo.io/oefeningen/async-await/expert" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Async/await foutafhandeling — Expert — Robuuste retry en circuit breakers",
+  "description": "Implementeer exponential backoff, cancellation en timeout strategieën.",
+  "totalTime": "PT75M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Je evalueert wanneer retries zinvol zijn",
+      "text": "Je evalueert wanneer retries zinvol zijn"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Je monitort latency en maakt beslissingen op basis van telemetrie",
+      "text": "Je monitort latency en maakt beslissingen op basis van telemetrie"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Je documenteert fallback scenarios voor incident responses",
+      "text": "Je documenteert fallback scenarios voor incident responses"
+    }
+  ],
+  "tool": [
+    "resilience",
+    "observability",
+    "javascript"
+  ],
+  "supply": [
+    "VS Code",
+    "Node.js LTS"
+  ]
+}
+  </script>
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="../../../index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="../../../leerwegen.html">Leerwegen</a>
+        <a href="../../../prijzen.html">Prijzen</a>
+        <a href="../../../about.html">Over ons</a>
+        <a href="../../../blog.html">Blog</a>
+        <a href="../../../contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="../../../login.html" data-track-event="nav.login">Inloggen</a>
+        <a class="button" href="../../../register.html" data-track-event="nav.start" data-track-meta="{&quot;source&quot;:&quot;nav&quot;}">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <p class="tagline">Test je begrip van asynchrone flows met realistische API-scenario’s.</p>
+      <h1>Async/await foutafhandeling</h1>
+      <p class="lead">Implementeer exponential backoff, cancellation en timeout strategieën.</p>
+      <div class="cta-row">
+        <a class="button" href="../../../register.html" data-track-event="cta.programmatic" data-track-meta="{&quot;source&quot;:&quot;oefeningen&quot;,&quot;topic&quot;:&quot;async-await&quot;,&quot;level&quot;:&quot;expert&quot;}">Los het resilience scenario op</a>
+        <a class="button secondary" href="../../../prijzen.html" data-track-event="cta.programmatic_pricing" data-track-meta="{&quot;source&quot;:&quot;oefeningen&quot;,&quot;topic&quot;:&quot;async-await&quot;,&quot;level&quot;:&quot;expert&quot;}">Bekijk plannen</a>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Waarom dit telt</h2>
+      <p>In productie heb je externe afhankelijkheden. Systeemdenken en guardrails houden je SLO’s gezond.</p>
+      <div class="cards-grid">
+        
+        <article class="card">
+          <h3>Je evalueert wanneer retries zinvol zijn</h3>
+          <p>Gebruik dit als meetpunt voor jouw voortgang en de volgende coachingsessie.</p>
+        </article>
+        
+        <article class="card">
+          <h3>Je monitort latency en maakt beslissingen op basis van telemetrie</h3>
+          <p>Gebruik dit als meetpunt voor jouw voortgang en de volgende coachingsessie.</p>
+        </article>
+        
+        <article class="card">
+          <h3>Je documenteert fallback scenarios voor incident responses</h3>
+          <p>Gebruik dit als meetpunt voor jouw voortgang en de volgende coachingsessie.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section muted">
+      <h2>Wat je gaat ervaren</h2>
+      <ul class="checklist">
+        <li>Contextuele opdrachten met directe feedback</li>
+        <li>Reflectie prompts die je dwingen het waarom uit te leggen</li>
+        <li>Mentor-hints gebaseerd op je foutpatronen</li>
+      </ul>
+      <p class="note">Gemiddelde doorlooptijd: 75m • Keywords: resilience, observability, javascript</p>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2025</span> LearnZo.</span>
+      <a href="../../../privacy.html">Privacy</a>
+      <a href="../../../voorwaarden.html">Voorwaarden</a>
+    </div>
+  </footer>
+  <script src="../../../analytics.js" defer></script>
+  <script src="../../../main.js"></script>
+</body>
+</html>

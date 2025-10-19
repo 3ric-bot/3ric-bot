@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Inloggen</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/login" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    main {
+      min-height: 80vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 16px;
+    }
+    form {
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      width: min(420px, 100%);
+      display: grid;
+      gap: 16px;
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 600;
+    }
+    input {
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="leerwegen.html">Leerwegen</a>
+        <a href="prijzen.html">Prijzen</a>
+        <a href="about.html">Over ons</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Beheer</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="login.html" aria-current="page" data-track-event="nav.login">Inloggen</a>
+        <a class="button" href="register.html" data-track-event="nav.start" data-track-meta="{&quot;source&quot;:&quot;nav&quot;}">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <form id="login-form">
+      <h1 style="margin-top:0;">Welkom terug</h1>
+      <p style="margin:0;color:var(--text-muted);">Log in met je e-mail en wachtwoord om verder te gaan met je leerpad.</p>
+      <p style="margin:0;color:var(--text-muted); font-size:0.9rem;">Demo-account: <strong>ada@student.learnzo.io</strong> / <strong>Student123!</strong></p>
+      <label for="email">E-mailadres
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="jij@learnzo.com" required />
+      </label>
+      <label for="password">Wachtwoord
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+      </label>
+      <button type="submit">Log in</button>
+      <p id="login-status" role="status" style="min-height:1.5em;margin:0;color:var(--text-muted);"></p>
+      <div class="actions">
+        <a href="register.html">Nog geen account?</a>
+        <a href="reset.html">Wachtwoord vergeten</a>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2024</span> LearnZo.</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+  <script src="analytics.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('login-form');
+      const statusEl = document.getElementById('login-status');
+      if (!form || !statusEl) return;
+      const rawApiBase = document.body?.dataset?.apiBase || '{{API_BASE_URL}}';
+      const datasetApiBase =
+        rawApiBase && !rawApiBase.includes('{{') && rawApiBase.trim() !== '' ? rawApiBase : null;
+      const apiBase = window.LEARNZO_API_BASE || datasetApiBase || 'http://localhost:4000';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        statusEl.textContent = 'Bezig met inloggen…';
+        statusEl.style.color = 'var(--text-muted)';
+        const formData = new FormData(form);
+        const email = String(formData.get('email') || '').trim();
+        const password = String(formData.get('password') || '');
+        if (!email || !password) {
+          statusEl.textContent = 'Vul zowel e-mail als wachtwoord in.';
+          statusEl.style.color = 'var(--danger, #dc2626)';
+          return;
+        }
+        const deviceId = typeof window.learnzoGetDeviceId === 'function'
+          ? window.learnzoGetDeviceId()
+          : `device-${Math.random().toString(36).slice(2)}`;
+        try {
+          const response = await fetch(`${apiBase}/auth/login`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Device-ID': deviceId
+            },
+            body: JSON.stringify({ email, password })
+          });
+          const payload = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(payload.error || 'Inloggen mislukt. Controleer je gegevens.');
+          }
+          window.dispatchEvent(new CustomEvent('learnzo:auth', { detail: { accessToken: payload.accessToken, refreshToken: payload.refreshToken } }));
+          statusEl.textContent = 'Succes! Tokens opgeslagen voor beveiligde API-calls.';
+          statusEl.style.color = 'var(--success, #0f766e)';
+          if (typeof window.learnzoTrack === 'function') {
+            window.learnzoTrack('auth.login_form', { method: 'password' });
+          }
+        } catch (error) {
+          console.error('Login mislukt', error);
+          statusEl.textContent = error.message || 'Inloggen mislukt. Probeer het opnieuw.';
+          statusEl.style.color = 'var(--danger, #dc2626)';
+        }
+      });
+    });
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>

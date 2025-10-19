@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Contact</title>
+  <meta name="description" content="Neem contact op met LearnZo voor support, partnerships of persaanvragen. Ons team reageert binnen de afgesproken SLA." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://learnzo.io/contact" />
+  <link rel="alternate" hreflang="nl" href="https://learnzo.io/contact" />
+  <link rel="alternate" hreflang="en" href="https://learnzo.io/en/contact" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LearnZo — Contact" />
+  <meta property="og:description" content="Support, sales en partnerships met focus op snelle hulp en transparante opvolging." />
+  <meta property="og:url" content="https://learnzo.io/contact" />
+  <meta property="og:image" content="https://cdn.learnzo.io/og/learnzo-support.jpg" />
+  <meta property="og:site_name" content="LearnZo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LearnZo — Contact" />
+  <meta name="twitter:description" content="Bereik het LearnZo team voor hulp, demo's of communityvragen." />
+  <meta name="twitter:image" content="https://cdn.learnzo.io/og/learnzo-support.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "url": "https://learnzo.io/contact",
+      "contactOption": "CustomerSupport",
+      "contactType": "customer service"
+    }
+  </script>
+  <style>
+    form {
+      display: grid;
+      gap: 16px;
+      background: var(--surface);
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      max-width: 560px;
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      padding: 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <header>
+    <nav>
+      <a href="index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="leerwegen.html">Leerwegen</a>
+        <a href="prijzen.html">Prijzen</a>
+        <a href="about.html">Over ons</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="admin.html">Beheer</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="login.html">Inloggen</a>
+        <a class="button" href="register.html">Start gratis</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-top:96px;">
+      <div class="section-inner" style="display:grid; gap:32px; align-items:start; grid-template-columns:repeat(auto-fit, minmax(260px,1fr));">
+        <div>
+          <h1 class="section-title">Neem contact op</h1>
+          <p class="section-subtitle">Ons team reageert binnen één werkdag. Voor supportvragen kun je ook onze kennisbank of statuspagina raadplegen.</p>
+          <div class="card">
+            <h2>Support</h2>
+            <p><strong>Support widget:</strong> In-app beschikbaar 24/7.</p>
+            <p><strong>Email:</strong> support@learnzo.com</p>
+            <p><strong>Status:</strong> <a href="support.html">status.learnzo.com</a></p>
+          </div>
+          <div class="card">
+            <h2>Sales & demo</h2>
+            <p>Plan een sessie van 30 minuten om de admin-, mentor- en studentervaring te bekijken.</p>
+            <a class="button" href="https://cal.com">Plan een demo</a>
+          </div>
+        </div>
+        <form>
+          <label for="name">Naam
+            <input id="name" name="name" type="text" placeholder="Voor- en achternaam" required />
+          </label>
+          <label for="email">E-mail
+            <input id="email" name="email" type="email" placeholder="jij@bedrijf.com" required />
+          </label>
+          <label for="topic">Onderwerp
+            <select id="topic" name="topic">
+              <option>Ik wil LearnZo implementeren</option>
+              <option>Vraag over prijzen</option>
+              <option>Ondersteuning nodig</option>
+              <option>Pers of samenwerking</option>
+            </select>
+          </label>
+          <label for="message">Bericht
+            <textarea id="message" name="message" placeholder="Vertel ons meer over je vraag"></textarea>
+          </label>
+          <label style="display:flex; gap:8px; align-items:center;">
+            <input type="checkbox" required />
+            Ik ga akkoord met het privacybeleid.
+          </label>
+          <button type="submit">Verstuur bericht</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h4>LearnZo</h4>
+        <p>Het platform dat leren, doen en groeien samenbrengt.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+          <li><a href="leerwegen.html">Leerwegen</a></li>
+          <li><a href="cheatsheets.html">Cheatsheets</a></li>
+          <li><a href="microvideos.html">Micro-video’s</a></li>
+          <li><a href="anatomy.html">Code Anatomy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+          <li><a href="blog.html">Blog & kennisbank</a></li>
+          <li><a href="support.html">Support & status</a></li>
+          <li><a href="transparantie.html">Transparantie</a></li>
+          <li><a href="community.html">Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal & privacy</h4>
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:8px;">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="voorwaarden.html">Voorwaarden</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="security.html">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2024</span> LearnZo. Alle rechten voorbehouden.</span>
+      <div style="display:flex; gap:16px;">
+        <a href="https://www.linkedin.com" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://twitter.com" aria-label="Twitter">Twitter</a>
+        <a href="mailto:hello@learnzo.com" aria-label="Email">hello@learnzo.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

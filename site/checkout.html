@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo — Checkout</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/checkout" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    main { min-height: 80vh; display: grid; place-items: center; padding: 48px 16px; }
+    form { background: var(--surface); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-md); border: 1px solid rgba(15,23,42,0.08); width: min(480px, 100%); display: grid; gap: 16px; }
+    label { display: grid; gap: 6px; font-weight: 600; }
+    input, select { padding: 12px; border-radius: var(--radius-md); border: 1px solid rgba(15,23,42,0.12); font-size: 1rem; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ga naar hoofdinhoud</a>
+  <main id="main">
+    <form>
+      <h1 style="margin:0;">Pro Maand</h1>
+      <p style="margin:0;color:var(--text-muted);">€19 per maand • eerste 7 dagen gratis • opzeggen op elk moment.</p>
+      <label for="name">Naam op kaart
+        <input id="name" name="name" type="text" placeholder="Voor- en achternaam" required />
+      </label>
+      <label for="email">E-mailadres
+        <input id="email" name="email" type="email" placeholder="jij@learnzo.com" required />
+      </label>
+      <label for="country">Land
+        <select id="country" name="country">
+          <option>Nederland</option>
+          <option>België</option>
+          <option>Duitsland</option>
+          <option>Frankrijk</option>
+        </select>
+      </label>
+      <label for="vat">Btw-nummer (optioneel)
+        <input id="vat" name="vat" type="text" placeholder="NL123456789B01" />
+      </label>
+      <button type="submit">Start proef</button>
+      <p style="margin:0;font-size:0.85rem;color:var(--text-muted);">Door te betalen ga je akkoord met onze <a href="voorwaarden.html">voorwaarden</a>. Je ontvangt een factuur via e-mail.</p>
+    </form>
+  </main>
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2024</span> LearnZo.</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

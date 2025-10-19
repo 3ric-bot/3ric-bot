@@ -1,0 +1,13 @@
+{
+  "name": "learnzo-backend",
+  "version": "1.0.0",
+  "description": "Hardened LearnZo API backend with persistent storage and production deployment tooling",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "author": "",
+  "license": "MIT"
+}

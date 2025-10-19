@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /app/
+Disallow: /login
+Disallow: /register
+Disallow: /reset
+Disallow: /checkout
+Allow: /
+
+Sitemap: https://learnzo.io/sitemap.xml

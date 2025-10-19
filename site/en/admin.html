@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnZo Admin — Campaign control & governance</title>
+  <meta name="description" content="Launch, pause, and audit LearnZo pricing campaigns with guardrails that protect compliance and revenue integrity." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://learnzo.io/en/admin" />
+  <link rel="alternate" hreflang="nl" href="https://learnzo.io/admin" />
+  <link rel="alternate" hreflang="en" href="https://learnzo.io/en/admin" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LearnZo Admin — Campaign control & governance" />
+  <meta property="og:description" content="Securely manage discounts, enforce guardrails, and monitor audit trails across LearnZo." />
+  <meta property="og:url" content="https://learnzo.io/en/admin" />
+  <meta property="og:image" content="https://cdn.learnzo.io/og/learnzo-admin.jpg" />
+  <meta property="og:site_name" content="LearnZo" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LearnZo Admin — Campaign control & governance" />
+  <meta name="twitter:description" content="Launch, pause, and audit LearnZo pricing experiments with confidence." />
+  <meta name="twitter:image" content="https://cdn.learnzo.io/og/learnzo-admin.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "LearnZo Admin Console",
+      "description": "Secure console for managing LearnZo pricing campaigns, guardrails, and audit logs.",
+      "url": "https://learnzo.io/en/admin"
+    }
+  </script>
+</head>
+<body data-api-base="{{API_BASE_URL}}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav>
+      <a href="../index.html" aria-label="LearnZo home" class="tagline">LearnZo</a>
+      <div class="nav-links" role="list">
+        <a href="learning-paths.html">Learning Paths</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html" aria-current="page">Admin</a>
+      </div>
+      <div class="nav-actions">
+        <a class="button secondary" href="../login.html" data-track-event="nav.login">Sign in</a>
+        <a class="button" href="../register.html" data-track-event="nav.start" data-track-meta="{&quot;source&quot;:&quot;nav&quot;}">Start for free</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="tagline">Operations console</p>
+      <h1>Control every LearnZo promotion with confidence.</h1>
+      <p class="lead">Create and activate discounts, enforce guardrails, and monitor audit trails without leaving a secure workspace.</p>
+      <div class="cta-row">
+        <a class="button" href="#campaigns">View campaigns</a>
+        <a class="button secondary" href="../docs/launch-readiness-checklist.md" data-track-event="cta.admin_docs">Launch checklist</a>
+      </div>
+    </section>
+
+    <section id="campaigns" class="section">
+      <div class="section-inner">
+        <div class="admin-layout">
+          <article class="admin-panel">
+            <h2>Campaign inventory</h2>
+            <p class="admin-note">Paste an admin access token to inspect, create, or pause campaigns. Every action is logged to the audit trail.</p>
+            <form class="admin-actions" aria-label="Load promotions">
+              <label for="admin-token">
+                Access token
+                <input id="admin-token" name="token" type="password" autocomplete="off" placeholder="Bearer token" required />
+              </label>
+              <label class="toggle" for="include-archived">
+                <input id="include-archived" type="checkbox" />
+                Include archived
+              </label>
+              <button id="load-promotions" type="submit" class="secondary">Load promotions</button>
+            </form>
+            <div id="admin-feedback" role="status" aria-live="polite">Provide an access token to manage campaigns.</div>
+            <div class="admin-table-wrapper" role="region" aria-live="polite" aria-label="Promotion list">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Campaign</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Starts</th>
+                    <th scope="col">Ends</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Lifecycle</th>
+                    <th scope="col">Plans</th>
+                  </tr>
+                </thead>
+                <tbody id="promotions-body">
+                  <tr>
+                    <td colspan="8">Connect the API and press “Load promotions” to view active campaigns.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+          <aside class="admin-panel">
+            <h2>Guardrails that ship with every campaign</h2>
+            <ul class="checklist">
+              <li>Every create/update/write operation triggers an audit log entry with actor, IP, and user agent metadata.</li>
+              <li>Promotion values are validated (percentage ≤ 100, fixed ≥ €1) and plan keys must exist before persisting.</li>
+              <li>Activation requires an explicit POST and automatically adjusts start times so dormant codes never go live by accident.</li>
+              <li>Archived promotions are excluded from default queries, preventing stale codes from resurfacing.</li>
+            </ul>
+            <p class="admin-note">Need deeper governance? Connect the `/admin/audit-log` and `/admin/privacy-requests` endpoints to your SIEM.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted">
+      <div class="section-inner">
+        <div class="admin-layout">
+          <article class="admin-panel">
+            <h3>Create a new campaign</h3>
+            <form id="create-promotion-form" class="admin-form">
+              <label for="create-name">Campaign name
+                <input id="create-name" name="name" required placeholder="Spring launch 2025" />
+              </label>
+              <label for="create-code">Coupon code
+                <input id="create-code" name="code" required placeholder="SPRING25" />
+              </label>
+              <label for="create-discount-type">Discount type
+                <select id="create-discount-type" name="discountType">
+                  <option value="percentage">Percentage</option>
+                  <option value="fixed">Fixed amount (€ cents)</option>
+                </select>
+              </label>
+              <label for="create-value">Value
+                <input id="create-value" name="value" type="number" min="1" step="1" required placeholder="25" />
+              </label>
+              <label for="create-plans">Plans (comma separated)
+                <input id="create-plans" name="plans" placeholder="pro-monthly,pro-annual" />
+              </label>
+              <label for="create-start">Starts at
+                <input id="create-start" name="startsAt" type="datetime-local" />
+              </label>
+              <label for="create-end">Ends at
+                <input id="create-end" name="endsAt" type="datetime-local" />
+              </label>
+              <label for="create-usage">Usage limit
+                <input id="create-usage" name="usageLimit" type="number" min="1" />
+              </label>
+              <label for="create-per-user">Per-user limit
+                <input id="create-per-user" name="perUserLimit" type="number" min="1" />
+              </label>
+              <label class="toggle" for="create-stackable">
+                <input id="create-stackable" name="stackable" type="checkbox" />
+                Allow stacking with other discounts
+              </label>
+              <label for="create-notes">Notes
+                <textarea id="create-notes" name="notes" rows="3" placeholder="Internal notes for finance or support"></textarea>
+              </label>
+              <button type="submit">Create campaign</button>
+            </form>
+          </article>
+          <article class="admin-panel">
+            <h3>Update or transition an existing campaign</h3>
+            <form id="update-promotion-form" class="admin-form" aria-label="Update promotion">
+              <label for="update-id">Promotion ID
+                <input id="update-id" name="promotionId" required placeholder="promo-..." />
+              </label>
+              <label for="update-name">New name
+                <input id="update-name" name="name" placeholder="Revised campaign name" />
+              </label>
+              <label for="update-code">New code
+                <input id="update-code" name="code" placeholder="NEWCODE" />
+              </label>
+              <label for="update-value">New value
+                <input id="update-value" name="value" type="number" min="1" />
+              </label>
+              <label for="update-start">New start
+                <input id="update-start" name="startsAt" type="datetime-local" />
+              </label>
+              <label for="update-end">New end
+                <input id="update-end" name="endsAt" type="datetime-local" />
+              </label>
+              <label for="update-usage">New usage limit
+                <input id="update-usage" name="usageLimit" type="number" min="1" />
+              </label>
+              <label for="update-per-user">New per-user limit
+                <input id="update-per-user" name="perUserLimit" type="number" min="1" />
+              </label>
+              <label for="update-plans">Plan access
+                <input id="update-plans" name="plans" placeholder="pro-monthly,team" />
+              </label>
+              <label for="update-notes">Notes
+                <textarea id="update-notes" name="notes" rows="3" placeholder="Describe why this update is needed"></textarea>
+              </label>
+              <button type="submit" class="secondary">Save updates</button>
+            </form>
+            <form id="promotion-action-form" class="admin-form" aria-label="Promotion lifecycle action">
+              <label for="action-id">Promotion ID
+                <input id="action-id" name="promotionId" required placeholder="promo-..." />
+              </label>
+              <label for="action-select">Action
+                <select id="action-select" name="action" required>
+                  <option value="activate">Activate</option>
+                  <option value="pause">Pause</option>
+                  <option value="archive">Archive</option>
+                </select>
+              </label>
+              <button type="submit">Apply action</button>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bottom" style="max-width:960px; margin:0 auto; padding:24px 0; border-top:1px solid rgba(15,23,42,0.08); color:var(--text-muted);">
+      <span>© <span id="year">2024</span> LearnZo.</span>
+      <a href="../privacy.html">Privacy</a>
+      <a href="../voorwaarden.html">Terms</a>
+    </div>
+  </footer>
+  <script src="../analytics.js" defer></script>
+  <script src="../main.js"></script>
+  <script src="../scripts/admin.js" defer></script>
+</body>
+</html>
